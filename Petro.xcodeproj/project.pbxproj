@@ -91,7 +91,7 @@
 		8A64BFAB28C3C0A0004AAEFE /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				8A64BFB628C3C17B004AAEFE /* User.swift */,
+				8A64BFBC28C3C4B7004AAEFE /* User */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -99,7 +99,7 @@
 		8A64BFAC28C3C0A6004AAEFE /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				8A64BFAE28C3C0D5004AAEFE /* SpeechRecognizerViewModel.swift */,
+				8A64BFBB28C3C4AC004AAEFE /* Search */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -107,11 +107,51 @@
 		8A64BFAD28C3C0AC004AAEFE /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8A64BFB028C3C0FE004AAEFE /* MenuView.swift */,
-				8A64BFB228C3C128004AAEFE /* UserView.swift */,
-				8A64BFB428C3C152004AAEFE /* SearchView.swift */,
+				8A64BFBA28C3C4A1004AAEFE /* Search */,
+				8A64BFB928C3C492004AAEFE /* User */,
+				8A64BFB828C3C488004AAEFE /* Menu */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		8A64BFB828C3C488004AAEFE /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				8A64BFB028C3C0FE004AAEFE /* MenuView.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		8A64BFB928C3C492004AAEFE /* User */ = {
+			isa = PBXGroup;
+			children = (
+				8A64BFB228C3C128004AAEFE /* UserView.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		8A64BFBA28C3C4A1004AAEFE /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				8A64BFB428C3C152004AAEFE /* SearchView.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		8A64BFBB28C3C4AC004AAEFE /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				8A64BFAE28C3C0D5004AAEFE /* SpeechRecognizerViewModel.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		8A64BFBC28C3C4B7004AAEFE /* User */ = {
+			isa = PBXGroup;
+			children = (
+				8A64BFB628C3C17B004AAEFE /* User.swift */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
