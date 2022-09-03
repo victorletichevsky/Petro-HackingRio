@@ -8,7 +8,7 @@
 import SwiftUI
 import AVFoundation
 
-struct FirstView: View {
+struct SearchView: View {
     @StateObject var speechRecognizerViewModel = SpeechRecognizerViewModel()
     var body: some View {
         NavigationView {
