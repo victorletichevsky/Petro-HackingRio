@@ -13,17 +13,17 @@ struct DocumentView: View {
         Form{
             HStack{
                 VStack {
-                    Text(document.titulo)
+                    Text("Título: " + document.titulo)
                         .font(.title2)
                         .frame( alignment: .trailing)
                         .padding(.trailing, 30)
-                    Text(document.autor)
+                    Text("Autor: " + document.autor)
                         .font(.title3)
                         .frame( alignment: .trailing)
                         .padding(.top, 3)
                         .padding(.leading, 0)
                         .padding(.trailing, 30)
-                    Text(document.descricao)
+                    Text("Descrição:\n" + document.descricao)
                         .font(.title3)
                         .frame( alignment: .trailing)
                         .padding(.top, 3)
