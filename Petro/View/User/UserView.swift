@@ -23,7 +23,7 @@ struct UserView: View {
                     Text(user.name)
                         .font(.title2)
                         .frame( alignment: .trailing)
-                        .padding(.trailing, 30)
+                        .padding(.trailing, 10)
                     Text(user.competencies)
                         .font(.title3)
                         .frame( alignment: .trailing)
