@@ -30,16 +30,24 @@ class SpeechRecognizerViewModel: ObservableObject {
     
     @Published var transcript: String = ""
     
-    @Published var isSearching: Bool
+    @Published var isHearing: Bool
     @Published var count = 0
     @Published var searchUser: String = ""
     @Published var users: [User] = [User.init(name: "Victor Letichevsky", competencies: "Computação", profileImage: "FotoVictorLetichevsky", password: "1234"), User(name: "Bernardo Delgado", competencies: "Engenharia", profileImage: "", password: "1234")]
+    @Published var documents: [Document] = [Document.init(titulo: "Geração de energia elétrica a partir de borras oleosas", autor:"UNIVERSIDADE FEDERAL DE ITAJUBÁ/UNIFEI", descricao: "A utilização de resíduos para a geração de energia elétrica é uma forma de aumentar a disponibilidade de insumos energéticos aliada à redução de passivos ambientais. A indústria do petróleo gera consideráveis quantidades de borra oleosa com PCI entre 15 e 20MJ/kg. Estas borras podem ser utilizadas como insumo energético para geração termelétrica por meio da geração de gás de síntese (GS) através do processo de gaseificação. Para isto, faz-se necessária a seleção adequada das tecnologias de pré-tratamento, gaseificação e do arranjo termelétrico mais propício. A destinação do resíduo para a geração de energia elétrica traz benefícios econômicos e ambientais adicionais, já que esse resíduo, considerado perigoso, possui grande custo de disposição, podendo representar riscos ao meio ambiente."), Document(titulo: "Energia elétrica de biomassa lignocelulósica", autor:"FUTURA ENERGIA SERVICOS LTDA; UNIVERSIDADE FEDERAL DO RIO DE JANEIRO/UFRJ" ,descricao: "Oportunidade de geração de energia elétrica e biogás (biometano)a partir de biomassa lignocelulósica."), Document(titulo: "Novos sistemas fotovoltaicos", autor: "Projeto Interno", descricao: "O setor fotovoltaico encontra-se hoje dominado pela tecnologia de silício cristalino onde o produto, o módulo fotovoltaico, apresenta um comportamento muito semelhante a uma commodity. Essa tecnologia apresenta características intrínsecas, decorrentes da sua própria concepção, que a descredenciam para o crescimento da produção.")]
     
-    var searchResult: [User] {
+    var searchResultUser: [User] {
         if searchUser.isEmpty {
             return users
         } else {
             return users.filter { $0.competencies.localizedStandardContains(searchUser) || $0.name.localizedStandardContains(searchUser) }
+        }
+    }
+    var searchResultDocument: [Document] {
+        if searchUser.isEmpty {
+            return documents
+        } else {
+            return documents.filter { $0.titulo.localizedStandardContains(searchUser) || $0.autor.localizedStandardContains(searchUser) || $0.descricao.localizedStandardContains(searchUser) }
         }
     }
     
@@ -47,9 +55,11 @@ class SpeechRecognizerViewModel: ObservableObject {
     private var request: SFSpeechAudioBufferRecognitionRequest?
     private var task: SFSpeechRecognitionTask?
     private let recognizer: SFSpeechRecognizer?
+    private var lastWordHeared:String = ""
+    private var wordsToSearch:[String] = []
     
     init() {
-        self.isSearching = false
+        self.isHearing = false
         recognizer = SFSpeechRecognizer(locale: Locale(identifier: "pt-BR"))
         
         Task(priority: .background) {
@@ -142,25 +152,42 @@ class SpeechRecognizerViewModel: ObservableObject {
         
         if let result = result {
             speak(result.bestTranscription.formattedString)
-            if isSearching {
-                if count == 0 {
-                    searchSpeak(result.bestTranscription.formattedString.components(separatedBy: "Petro ").dropFirst().first ?? "")
-                } else {
-                    searchSpeak(result.bestTranscription.formattedString.components(separatedBy: " ").dropFirst().first ?? " ")
-                }
+            if isHearing {
+                searchSpeak(wordsToSearch.joined(separator: " "))
             }
         }
     }
     
     private func speak(_ message: String) {
-        if message == "Petro" {
-            isSearching = true
-            count += 1
-            print("entrou")
+        let message = message.lowercased()
+        
+
+        let lastWordHeared = String(message.split(separator: " ").last ?? "xx \(Date())")
+        guard self.lastWordHeared != lastWordHeared else {return}
+//        print(lastWordHeared)
+
+        self.lastWordHeared = lastWordHeared
+
+        switch (lastWordHeared, isHearing) {
+        case ("petro", false):
+            print("Começou->", lastWordHeared)
+            isHearing = true
+            wordsToSearch.removeAll()
+            break
+        case ("pesquisar", true):     
+            print("Parou->", lastWordHeared)
+            isHearing = false
+            break
+        case (_, true):
+            print("Adicionou->", lastWordHeared)
+            wordsToSearch.append(lastWordHeared)
+        default:
+            break
         }
+        
     }
     private func searchSpeak(_ messagem: String) {
-        if isSearching {
+        if isHearing {
             searchUser = messagem
             print("teste \(searchUser)")
         }

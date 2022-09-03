@@ -16,6 +16,8 @@
 		8A64BFB328C3C128004AAEFE /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A64BFB228C3C128004AAEFE /* UserView.swift */; };
 		8A64BFB528C3C152004AAEFE /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A64BFB428C3C152004AAEFE /* SearchView.swift */; };
 		8A64BFB728C3C17B004AAEFE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A64BFB628C3C17B004AAEFE /* User.swift */; };
+		8A64BFBF28C3FA4B004AAEFE /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A64BFBE28C3FA4B004AAEFE /* Document.swift */; };
+		8A64BFC228C3FA7F004AAEFE /* DocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A64BFC128C3FA7F004AAEFE /* DocumentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,8 @@
 		8A64BFB228C3C128004AAEFE /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 		8A64BFB428C3C152004AAEFE /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		8A64BFB628C3C17B004AAEFE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8A64BFBE28C3FA4B004AAEFE /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		8A64BFC128C3FA7F004AAEFE /* DocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +95,7 @@
 		8A64BFAB28C3C0A0004AAEFE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8A64BFBD28C3FA2C004AAEFE /* Document */,
 				8A64BFBC28C3C4B7004AAEFE /* User */,
 			);
 			path = Model;
@@ -107,6 +112,7 @@
 		8A64BFAD28C3C0AC004AAEFE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8A64BFC028C3FA6F004AAEFE /* Document */,
 				8A64BFBA28C3C4A1004AAEFE /* Search */,
 				8A64BFB928C3C492004AAEFE /* User */,
 				8A64BFB828C3C488004AAEFE /* Menu */,
@@ -152,6 +158,22 @@
 				8A64BFB628C3C17B004AAEFE /* User.swift */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		8A64BFBD28C3FA2C004AAEFE /* Document */ = {
+			isa = PBXGroup;
+			children = (
+				8A64BFBE28C3FA4B004AAEFE /* Document.swift */,
+			);
+			path = Document;
+			sourceTree = "<group>";
+		};
+		8A64BFC028C3FA6F004AAEFE /* Document */ = {
+			isa = PBXGroup;
+			children = (
+				8A64BFC128C3FA7F004AAEFE /* DocumentView.swift */,
+			);
+			path = Document;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,12 +246,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A64BFBF28C3FA4B004AAEFE /* Document.swift in Sources */,
 				8A64BF9F28C3C070004AAEFE /* ContentView.swift in Sources */,
 				8A64BFB128C3C0FE004AAEFE /* MenuView.swift in Sources */,
 				8A64BFB328C3C128004AAEFE /* UserView.swift in Sources */,
 				8A64BF9D28C3C070004AAEFE /* PetroApp.swift in Sources */,
 				8A64BFB528C3C152004AAEFE /* SearchView.swift in Sources */,
 				8A64BFAF28C3C0D5004AAEFE /* SpeechRecognizerViewModel.swift in Sources */,
+				8A64BFC228C3FA7F004AAEFE /* DocumentView.swift in Sources */,
 				8A64BFB728C3C17B004AAEFE /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

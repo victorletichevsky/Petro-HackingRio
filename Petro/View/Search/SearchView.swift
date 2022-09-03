@@ -6,14 +6,14 @@
 //
 
 import SwiftUI
-import AVFoundation
 
 struct SearchView: View {
     @StateObject var speechRecognizerViewModel = SpeechRecognizerViewModel()
     @State var selection = 0
-    enum SearchFilter: String, CaseIterable {
-        case users = "Usuários"
-        case documents = "Documentos"
+    init() {
+        UISegmentedControl.appearance().selectedSegmentTintColor = .systemBlue
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.black], for: .normal)
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
     }
     var body: some View {
         NavigationView {
@@ -21,16 +21,22 @@ struct SearchView: View {
                 Picker("Filtro", selection: $selection) {
                     Text("Usuários").tag(0)
                     Text("Documentos").tag(1)
-                }.pickerStyle(.segmented)
+                }
+                .padding(.horizontal, 10)
+                .pickerStyle(.segmented)
                 List {
                     if selection == 0 {
-                        ForEach(speechRecognizerViewModel.searchResult) { user in
+                        ForEach(speechRecognizerViewModel.searchResultUser) { user in
                             NavigationLink(destination: UserView(user: user)) {
                                 Text(user.name)
                             }
                         }
                     } else {
-                        
+                        ForEach(speechRecognizerViewModel.searchResultDocument) { document in
+                            NavigationLink(destination: DocumentView(document: document)) {
+                                Text(document.titulo)
+                            }
+                        }
                     }
                 }
                 .navigationTitle("Pesquisar")
