@@ -1,8 +1,8 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-c66648af7eb3fe8bc4f294546bfd86ef473780cde1dea487d3c4ff354943c9ae.svg)](https://classroom.github.com/online_ide?assignment_repo_id=8362702&assignment_repo_type=AssignmentRepo)
->Esse é um arquivo de template e tem como o intuito prover uma breve apresentação de seu projeto para avaliadores e mentores. Sinta-se à vontade para editar os tópicos e títulos de acordo com seu gosto ou até mesmo para deletá-lo ou sobrescreve-lo caso o queira. Cheque também o arquivo [repositorio.md](https://github.com/hackingrio/template/blob/master/repositorio.md) para saber o que acontecerá com esse repositório depois que o evento acabar.
 
-# Petro - 2022
-### Lótus / ODS 4 - Educação de qualidade / Desafio Petrobras
+# Equipe 46 - Projeto Petro - Hacking Rio 2022
+![Logo Petro animado](/splash.gif) 
+
+### Lótus / ODS 4 - Educação de Qualidade / Desafio Petrobras
 
 #### Apresentação da equipe 
 
@@ -13,16 +13,14 @@ A equipe Lótus está composta por 5 integrantes:
 - Mariana Burlamaqui (Design de Mídias Digitais - PUC-Rio)
 - Victor Letichevsky (Ciência da Computação - PUC-Rio)
 
-Após muita reflexão decidimos aceitar o desafio da Petrobrás! Nosso produto é um app, em breve mais infos...
+Após muita reflexão escolhemos a ODS Educação de Qualidade e aceitamos o desafio da Petrobras!
 
-Use essa seção para falar sobre as motivações de seu time e, de forma breve, qual o produto que estão trabalhando. Se possível forneça **o que** seu produto é, por exemplo: Um app, uma aplicação web, gadget, dentre outros.
+Demos início então ao desenvolvimento de um app mobile, acionado por voz, para auxiliar na tomada de decisão dos funcionários.
 
 #### O Produto
 
-Adicione detalhes sobre seu produto. Levante pontos positivos, o porquê dele ser inovador, como ele se alinha com o cluster escolhido e quaisquer outras informações relevantes ao entendimento do 'porquê' e 'como' seu produto existe e atua.
+Petro, é o app mobile que irá auxiliar os funcionários na obtenção de conhecimento. Petro inova ao permitir o acionamento por voz, bastando dizer **Petro** + (**o assunto a ser pesquisado**) + **Pesquisar**. Retornando informações completas, o app além de realizar a busca por documentos, realiza a busca por profissionais competentes na área pesquisada. Desta forma, nossa solução se adequa à ODS Educação de Qualidade, pois permite que o funcionário entre em contato com o profissional que possui expertise na área ou realize acesso aos documentos pertinentes, para melhor auxiliá-lo durante uma simulação, treinamento ou execução de suas tarefas funcionais. 
 
-#### Informações adicionais 
+#### Fluxograma / BPMN
 
-Forneça informações adicionais, adicione novos tópicos ou subtópicos. Use esse arquivo como um guia rápido para manter claro os objetivos de seu projeto para os demais integrantes. Manter o foco conjunto de forma coesa lhe ajudará a criar um produto mais *sólido*.
-
-Tenha em mente que seu trabalho nesse repositório será avaliado por um Juri Técnico, informações sobre a tecnologia usada também são bem vindas. 
+![Diagrama do Projeto Petro](/bpmn_petro.png)
