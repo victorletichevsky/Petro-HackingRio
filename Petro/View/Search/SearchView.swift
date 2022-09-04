@@ -11,7 +11,7 @@ struct SearchView: View {
     @StateObject var speechRecognizerViewModel = SpeechRecognizerViewModel()
     @State var selection = 0
     init() {
-        UISegmentedControl.appearance().selectedSegmentTintColor = .systemBlue
+        UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(named: "ButtonColor")
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.black], for: .normal)
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
     }
@@ -40,21 +40,18 @@ struct SearchView: View {
                     }
                 }
                 .navigationTitle("Pesquisar")
-                
                 .searchable(text: $speechRecognizerViewModel.searchUser, placement: .navigationBarDrawer(displayMode: .always))
-                //            .toolbar {
-                //                ToolbarItem(placement: .navigationBarTrailing) {
-                //                    Picker("Filtro", selection: $selection, content: {
-                //                        Text("Usuárioss").tag(0)
-                //                        Text("Documentos").tag(1)
-                //                    }).pickerStyle(SegmentedPickerStyle())
-                //                }
-                //            }
             }
         }
         .onAppear {
             speechRecognizerViewModel.reset()
             speechRecognizerViewModel.transcribe()
+            let appearance = UINavigationBarAppearance()
+                       let textColor = UIColor(Color("Instrucao"))
+                                              appearance.largeTitleTextAttributes = [
+                           .foregroundColor: textColor,
+                       ]
+                       UINavigationBar.appearance().standardAppearance = appearance
         }
         .onChange(of: speechRecognizerViewModel.searchUser) { _ in
             print(speechRecognizerViewModel.searchUser)

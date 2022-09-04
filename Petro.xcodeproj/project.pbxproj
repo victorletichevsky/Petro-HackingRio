@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A42D0E028C4239C00FA3A13 /* SpeechStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A42D0DF28C4239C00FA3A13 /* SpeechStringExtension.swift */; };
 		8A64BF9D28C3C070004AAEFE /* PetroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A64BF9C28C3C070004AAEFE /* PetroApp.swift */; };
 		8A64BF9F28C3C070004AAEFE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A64BF9E28C3C070004AAEFE /* ContentView.swift */; };
 		8A64BFA128C3C071004AAEFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A64BFA028C3C071004AAEFE /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8A42D0DF28C4239C00FA3A13 /* SpeechStringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechStringExtension.swift; sourceTree = "<group>"; };
 		8A64BF9928C3C070004AAEFE /* Petro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Petro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A64BF9C28C3C070004AAEFE /* PetroApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetroApp.swift; sourceTree = "<group>"; };
 		8A64BF9E28C3C070004AAEFE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -46,6 +48,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8A42D0DE28C4238300FA3A13 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				8A42D0DF28C4239C00FA3A13 /* SpeechStringExtension.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		8A64BF9028C3C070004AAEFE = {
 			isa = PBXGroup;
 			children = (
@@ -65,6 +75,7 @@
 		8A64BF9B28C3C070004AAEFE /* Petro */ = {
 			isa = PBXGroup;
 			children = (
+				8A42D0DE28C4238300FA3A13 /* Utils */,
 				8A64BFAD28C3C0AC004AAEFE /* View */,
 				8A64BFAC28C3C0A6004AAEFE /* ViewModel */,
 				8A64BFAB28C3C0A0004AAEFE /* Model */,
@@ -246,6 +257,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A42D0E028C4239C00FA3A13 /* SpeechStringExtension.swift in Sources */,
 				8A64BFBF28C3FA4B004AAEFE /* Document.swift in Sources */,
 				8A64BF9F28C3C070004AAEFE /* ContentView.swift in Sources */,
 				8A64BFB128C3C0FE004AAEFE /* MenuView.swift in Sources */,
@@ -392,7 +404,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -423,7 +436,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

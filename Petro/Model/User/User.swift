@@ -12,5 +12,8 @@ struct User: Identifiable {
     var name: String
     var competencies: String
     var profileImage: String
+    var tel: String
+    var email: String
+    var projetos: [Document]
     var password: String
 }

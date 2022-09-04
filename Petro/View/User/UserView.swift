@@ -22,19 +22,37 @@ struct UserView: View {
                 VStack {
                     Text(user.name)
                         .font(.title2)
-                        .frame( alignment: .trailing)
-                        .padding(.trailing, 10)
+                        .frame( alignment: .center)
                     Text(user.competencies)
                         .font(.title3)
                         .frame( alignment: .trailing)
                         .padding(.top, 3)
-                        .padding(.trailing, 30)
+                    
                 }
             }
-            Section(header: Text("Projetos que já trabalhou")) {
-                Text("Projeto x")
-                Text("Projeto y")
+            Section(header: Text("Contatos")) {
+                Group {
+                    Text("Telefone: ")
+                        .bold()
+                    +
+                    Text(user.tel)
+                }
+                
+                
+                Group {
+                    Text("E-mail: ")
+                        .bold()
+                    +
+                    Text(user.email)
+                }
             }
+            Section(header: Text("Projetos")) {
+                ForEach(user.projetos) { projeto in
+                    Text(projeto.titulo)
+                }
+            }
+            .accentColor(Color("Instrucao"))
+            
         }
     }
 }

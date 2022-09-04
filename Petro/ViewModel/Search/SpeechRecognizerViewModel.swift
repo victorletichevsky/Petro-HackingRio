@@ -1,8 +1,10 @@
 //
 //  SpeechRecognizerViewModel.swift
-//  Petro
+//
+//  Petro Project
 //
 //  Created by Victor Letichevsky on 03/09/22.
+//  Updated by Barbara Herrera, Bernardo Delgado and Luiza Bretas on 03/09/22.
 //
 
 import Foundation
@@ -31,10 +33,35 @@ class SpeechRecognizerViewModel: ObservableObject {
     @Published var transcript: String = ""
     
     @Published var isHearing: Bool
+    @Published var isSpeaking: Bool = false
     @Published var count = 0
     @Published var searchUser: String = ""
-    @Published var users: [User] = [User.init(name: "Victor Letichevsky", competencies: "Computação", profileImage: "FotoVictorLetichevsky", password: "1234"), User(name: "Bernardo Delgado", competencies: "Engenharia", profileImage: "", password: "1234")]
-    @Published var documents: [Document] = [Document.init(titulo: "Geração de energia elétrica a partir de borras oleosas", autor:"UNIVERSIDADE FEDERAL DE ITAJUBÁ/UNIFEI", descricao: "A utilização de resíduos para a geração de energia elétrica é uma forma de aumentar a disponibilidade de insumos energéticos aliada à redução de passivos ambientais. A indústria do petróleo gera consideráveis quantidades de borra oleosa com PCI entre 15 e 20MJ/kg. Estas borras podem ser utilizadas como insumo energético para geração termelétrica por meio da geração de gás de síntese (GS) através do processo de gaseificação. Para isto, faz-se necessária a seleção adequada das tecnologias de pré-tratamento, gaseificação e do arranjo termelétrico mais propício. A destinação do resíduo para a geração de energia elétrica traz benefícios econômicos e ambientais adicionais, já que esse resíduo, considerado perigoso, possui grande custo de disposição, podendo representar riscos ao meio ambiente."), Document(titulo: "Energia elétrica de biomassa lignocelulósica", autor:"FUTURA ENERGIA SERVICOS LTDA; UNIVERSIDADE FEDERAL DO RIO DE JANEIRO/UFRJ" ,descricao: "Oportunidade de geração de energia elétrica e biogás (biometano)a partir de biomassa lignocelulósica."), Document(titulo: "Novos sistemas fotovoltaicos", autor: "Projeto Interno", descricao: "O setor fotovoltaico encontra-se hoje dominado pela tecnologia de silício cristalino onde o produto, o módulo fotovoltaico, apresenta um comportamento muito semelhante a uma commodity. Essa tecnologia apresenta características intrínsecas, decorrentes da sua própria concepção, que a descredenciam para o crescimento da produção.")]
+    
+    @Published var users: [User] = [User.init(name: "Victor Letichevsky", competencies: "Computação", profileImage: "FotoVictorLetichevsky", tel: "99999-9999", email: "victor@petro.com.br", projetos: [Document(titulo: "Novos sistemas fotovoltaicos", autor: "Projeto Interno", descricao: "O setor fotovoltaico encontra-se hoje dominado pela tecnologia de silício cristalino onde o produto, o módulo fotovoltaico, apresenta um comportamento muito semelhante a uma commodity. Essa tecnologia apresenta características intrínsecas, decorrentes da sua própria concepção, que a descredenciam para o crescimento da produção."),Document(titulo: "Desenvolvimento de Equipamento para Avaliação de Recurso Eólico Offshore", autor: "PROJETO INTERNO", descricao: "Para a eólica em terra, a medição do recurso se baseia na instalação de torres anemométricas. No mar, a utilização de torres é possível, porém os custos associados com o projeto e instalação são muito elevados e não há flexibilidade para transporte da estrutura para diferentes locais. Para superar essas dificuldades, o uso de boias meteoceanográficas equipadas com dispositivo de sensoriamento remoto de recurso eólico (no caso, LIDARs) tem sido a solução adotada mundialmente para subsidiar o desenvolvimento e financiamento de projetos de energia eólica offshore. Atualmente, no entanto, o mercado brasileiro não possui fornecedores locais de boias com LIDAR, ficando dependente de empresas sediadas na Europa e América do Norte para coletar dados eólicos offshore. Com o desenvolvimento de um fornecedor local, espera-se que haja redução de custos e agilidade na prestação de suporte técnico, permitindo que o mapeamento do recurso eólico offshore brasileiro seja intensificado.")], password: "1234"), User(name: "Bernardo Delgado", competencies: "Engenharia", profileImage: "FotoBernardoDelgado", tel: "99999-9999", email: "bernardo@petro.com.br", projetos: [], password: "1234"), User(name: "Barbara Herrera", competencies: "Ciência da Computação", profileImage: "", tel: "99999-9999", email: "barbaraHerrera@petro.com", projetos: [], password: "1234"), User(name: "Mariana Burlamaqui", competencies: "Design", profileImage: "FotoMarianaBurlamaqui", tel: "99999-9999", email: "mariana@petro.com", projetos: [Document(titulo: "Energia elétrica de biomassa lignocelulósica", autor:"FUTURA ENERGIA SERVICOS LTDA; UNIVERSIDADE FEDERAL DO RIO DE JANEIRO/UFRJ" ,descricao: "Oportunidade de geração de energia elétrica e biogás (biometano)a partir de biomassa lignocelulósica.")], password: "1234"), User(name: "Luiza Bretas", competencies: "Engenharia", profileImage: "", tel: "99999-9999", email: "luizaBretas@petro.com", projetos: [], password: "1234")]
+    
+    @Published var documents: [Document] = [
+        Document.init(
+            titulo: "Geração de energia elétrica a partir de borras oleosas",
+            autor:"UNIVERSIDADE FEDERAL DE ITAJUBÁ/UNIFEI",
+            descricao: "A utilização de resíduos para a geração de energia elétrica é uma forma de aumentar a disponibilidade de insumos energéticos aliada à redução de passivos ambientais. A indústria do petróleo gera consideráveis quantidades de borra oleosa com PCI entre 15 e 20MJ/kg. Estas borras podem ser utilizadas como insumo energético para geração termelétrica por meio da geração de gás de síntese (GS) através do processo de gaseificação. Para isto, faz-se necessária a seleção adequada das tecnologias de pré-tratamento, gaseificação e do arranjo termelétrico mais propício. A destinação do resíduo para a geração de energia elétrica traz benefícios econômicos e ambientais adicionais, já que esse resíduo, considerado perigoso, possui grande custo de disposição, podendo representar riscos ao meio ambiente."),
+        Document(titulo: "Energia elétrica de biomassa lignocelulósica",
+                 autor:"FUTURA ENERGIA SERVICOS LTDA; UNIVERSIDADE FEDERAL DO RIO DE JANEIRO/UFRJ" ,
+                 descricao: "Oportunidade de geração de energia elétrica e biogás (biometano)a partir de biomassa lignocelulósica."),
+        Document(titulo: "Novos sistemas fotovoltaicos",
+                 autor: "Projeto Interno",
+                 descricao: "O setor fotovoltaico encontra-se hoje dominado pela tecnologia de silício cristalino onde o produto, o módulo fotovoltaico, apresenta um comportamento muito semelhante a uma commodity. Essa tecnologia apresenta características intrínsecas, decorrentes da sua própria concepção, que a descredenciam para o crescimento da produção."),
+        Document(titulo: "Desenvolvimento de células solares a base de filme de Perovskita",
+                 autor: "CENTRO DE INOVAÇÕES CSEM BRASIL/CSEM BRASIL UNIVERSIDADE FEDERAL DO RIO GRANDE DO NORTE/UFRN",
+                 descricao: "A célula solar de perovskita (PSC) é uma das tecnologias emergentes mais promissoras para a nova geração de painéis fotovoltaicos, com eficiência teórica acima do Si cristalino e rápido desenvolvimento no meio acadêmico. Além disso, possui um potencial de baixo custo de produção podendo ser impressa em substratos flexíveis aumentando o espectro de aplicações. Projeta-se o custo da eletricidade produzida por painéis de PSC em apenas U$0,04/kWh. Apesar disso, há desafios a serem vencidos até sua efetiva viabilização comercial, relacionados à formulação/toxidez do líquido precursor, à junção do filme ativo com as demais camadas e principalmente à sua estabilidade contra condições adversas ao longo do tempo. Há clara oportunidade em investir no desenvolvimento de precursor a base de perovskita aplicável à tecnologia de impressão rolo-a-rolo, reconhecida como a mais adequada para fabricar filmes fotovoltaicos impressos em larga escala e cujo know-how é dominado no país pela CSEM Brasil."),
+        Document(titulo: "Desenvolvimento de Equipamento para Avaliação de Recurso Eólico Offshore",
+                 autor: "PROJETO INTERNO",
+                 descricao: "Para a eólica em terra, a medição do recurso se baseia na instalação de torres anemométricas. No mar, a utilização de torres é possível, porém os custos associados com o projeto e instalação são muito elevados e não há flexibilidade para transporte da estrutura para diferentes locais. Para superar essas dificuldades, o uso de boias meteoceanográficas equipadas com dispositivo de sensoriamento remoto de recurso eólico (no caso, LIDARs) tem sido a solução adotada mundialmente para subsidiar o desenvolvimento e financiamento de projetos de energia eólica offshore. Atualmente, no entanto, o mercado brasileiro não possui fornecedores locais de boias com LIDAR, ficando dependente de empresas sediadas na Europa e América do Norte para coletar dados eólicos offshore. Com o desenvolvimento de um fornecedor local, espera-se que haja redução de custos e agilidade na prestação de suporte técnico, permitindo que o mapeamento do recurso eólico offshore brasileiro seja intensificado."),
+        Document(titulo: "Planta Piloto de Geração Eólica Offshore",
+                 autor: "SERVIÇO NACIONAL DE APRENDIZAGEM INDUSTRIAL/CENTRO DE TECNOLOGIAS DO GÁS E ENERGIAS RENOVÁVEIS - SENAI/SENAI; UNIVERSIDADE FEDERAL DO RIO DE JANEIRO/UFRJ; UNIVERSIDADE FEDERAL DO RIO GRANDE DO NORTE/UFRN; UNIVERSIDADE FEDERAL DE JUIZ DE FORA/UFJF",
+                 descricao: "Atualmente a energia eólica onshore está em plena expansão no Brasil, sendo uma tecnologia madura, porém ainda não foi instalado nenhum aerogerador offshore no Brasil, mantendo essa tecnologia desconhecida no mercado nacional. Os estudos realizados no âmbito do projeto PD-0553-0016/2011 indicam ganho considerável de potencial em relação às áreas onshore na região avaliada."),
+        Document(titulo: "Métodos de menor custo para prospecção e avaliação do potencial solar brasileiro",
+                 autor: "INSTITUTO DE TECNOLOGIA PARA O DESENVOLVIMENTO/LACTEC; INSTITUTO NACIONAL DE PESQUISAS ESPACIAIS/INPE",
+                 descricao: "O setor de energia solar vem experimentando um notório crescimento nos últimos no Brasil. Nesse âmbito, o projeto objetiva disponibilizar metodologias e tecnologias de menor custo para levantamento e avaliação do recurso solar, em adequados níveis de confiabilidade e incerteza de medição. Os resultados esperados se mostram importantes para prospecção de locais para possível instalação de futuros empreendimentos solares. Prevê-se a contratação de renomadas instituições de pesquisa e empresas reconhecidamente capacitadas para o desenvolvimento dos produtos propostos. A escolha realizada das instituições ainda não é definitiva, estando sujeita a modificações.")]
     
     var searchResultUser: [User] {
         if searchUser.isEmpty {
@@ -47,9 +74,12 @@ class SpeechRecognizerViewModel: ObservableObject {
         if searchUser.isEmpty {
             return documents
         } else {
-            return documents.filter { $0.titulo.localizedStandardContains(searchUser) || $0.autor.localizedStandardContains(searchUser) || $0.descricao.localizedStandardContains(searchUser) }
+            return documents.filter { $0.titulo.localizedStandardContains(searchUser) || $0.autor.localizedStandardContains(searchUser) || $0.descricao.localizedStandardContains(searchUser)
+            }
         }
     }
+    
+    private lazy var speechDelegate:SpeechSynthesizerDelegate = SpeechSynthesizerDelegate(parent: self)
     
     private var audioEngine: AVAudioEngine?
     private var request: SFSpeechAudioBufferRecognitionRequest?
@@ -120,8 +150,8 @@ class SpeechRecognizerViewModel: ObservableObject {
         task = nil
     }
     
+    static let audioEngine = AVAudioEngine()
     private static func prepareEngine() throws -> (AVAudioEngine, SFSpeechAudioBufferRecognitionRequest) {
-        let audioEngine = AVAudioEngine()
         
         let request = SFSpeechAudioBufferRecognitionRequest()
         request.shouldReportPartialResults = true
@@ -139,6 +169,8 @@ class SpeechRecognizerViewModel: ObservableObject {
         try audioEngine.start()
         
         return (audioEngine, request)
+        
+        
     }
     
     private func recognitionHandler(result: SFSpeechRecognitionResult?, error: Error?) {
@@ -159,23 +191,31 @@ class SpeechRecognizerViewModel: ObservableObject {
     }
     
     private func speak(_ message: String) {
+        guard !SpeechDefaults.globalSpeaker.isSpeaking else {return}
+        
         let message = message.lowercased()
         
-
+        var searching = ""
+        var startSearching = ""
+        
         let lastWordHeared = String(message.split(separator: " ").last ?? "xx \(Date())")
         guard self.lastWordHeared != lastWordHeared else {return}
-//        print(lastWordHeared)
-
+        
         self.lastWordHeared = lastWordHeared
-
+        
         switch (lastWordHeared, isHearing) {
         case ("petro", false):
             print("Começou->", lastWordHeared)
+            startSearching = "Pesquise..."
+            
+            startSearching.speak(delegate: speechDelegate)
             isHearing = true
             wordsToSearch.removeAll()
             break
         case ("pesquisar", true):     
             print("Parou->", lastWordHeared)
+            searching = "Pesquisando..."
+            searching.speak(delegate: speechDelegate)
             isHearing = false
             break
         case (_, true):
@@ -201,6 +241,27 @@ class SpeechRecognizerViewModel: ObservableObject {
             errorMessage += error.localizedDescription
         }
         transcript = "<< \(errorMessage) >>"
+    }
+    
+}
+
+class SpeechSynthesizerDelegate: NSObject, AVSpeechSynthesizerDelegate {
+    
+    var parent: SpeechRecognizerViewModel
+    
+    init(parent: SpeechRecognizerViewModel) {
+        self.parent = parent
+    }
+    
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didStart utterance: AVSpeechUtterance) {
+        SpeechRecognizerViewModel.audioEngine.stop()
+        print("Parou")
+    }
+    
+    
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
+        try? SpeechRecognizerViewModel.audioEngine.start()
+        print("Restartou")
     }
 }
 
